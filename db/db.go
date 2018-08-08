@@ -15,7 +15,7 @@ func Init() {
 	err = db.Ping()
 	checkErr(err)
 
-	stmt, err := db.Prepare("CREATE TABLE flower (id int NOT NULL AUTO_INCREMENT, name varchar(40), category varchar(40), price decimal, photo varchar(256), instructions varchar(256), PRIMARY KEY (id));")
+	stmt, err := db.Prepare("CREATE TABLE flower (id int NOT NULL AUTO_INCREMENT, name varchar(40), category varchar(40), price decimal, photo varchar(256), descriptions varchar(256), PRIMARY KEY (id));")
 	checkErr(err)
 
 	_, err = stmt.Exec()
