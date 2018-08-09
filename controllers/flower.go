@@ -46,7 +46,7 @@ func GetAllFlower(c *gin.Context) {
 			flower models.Flower
 			flowers []models.Flower
 		)
-		rows, err := db.Init().Query("select id, name, category, price, photo, descriptions from flower;")
+		rows, err := db.Init().Query("select * from flower;")
 		if err != nil {
 			fmt.Print(err.Error())
 		}
@@ -70,7 +70,7 @@ func GetFlower(c *gin.Context) {
 			result gin.H
 		)
 		id := c.Param("id")
-		err := db.Init().QueryRow("select id, name, category, price, photo, descriptions from flower where id = ?;", id).Scan(&flower.Id, &flower.Name, &flower.Category, &flower.Price, &flower.Photo, &flower.Descriptions)
+		err := db.Init().QueryRow("select * from flower where id = ?;", id).Scan(&flower.Id, &flower.Name, &flower.Category, &flower.Price, &flower.Photo, &flower.Descriptions)
 
 		if err != nil {
 			// If no results send null
