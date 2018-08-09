@@ -23,6 +23,7 @@ func SetupRouter() *gin.Engine {
     v1.POST("/flower", controllers.Create)
     v1.GET("/flower/:id", controllers.GetFlower)
     v1.GET("/flowers", controllers.GetAllFlower)
+    v1.DELETE("/flower", controllers.DeleteFlower)
     v1.GET("/check", controllers.HealthCheck)
   }
   return router

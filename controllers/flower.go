@@ -86,3 +86,21 @@ func GetFlower(c *gin.Context) {
 
 		c.JSON(http.StatusOK, result)
 }
+
+
+// Delete flower
+func DeleteFlower(c *gin.Context) {
+		id := c.Query("id")
+		stmt, err := db.Init().Prepare("delete from flower where id= ?;")
+
+		if err != nil {
+			fmt.Print(err.Error())
+		}
+		_, err = stmt.Exec(id)
+		if err != nil {
+			fmt.Print(err.Error())
+		}
+		c.JSON(http.StatusOK, gin.H{
+			"message": fmt.Sprintf("Successfully deleted flower: %s", id),
+		})
+}
