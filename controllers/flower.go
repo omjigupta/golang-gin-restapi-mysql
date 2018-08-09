@@ -5,9 +5,9 @@ import (
   "fmt"
   "bytes"
   "golang-gin-restapi-mysql/db"
+	"golang-gin-restapi-mysql/models"
 	"github.com/gin-gonic/gin"
 )
-
 
 // Create new flower details
 func Create(c *gin.Context) {
@@ -37,5 +37,29 @@ func Create(c *gin.Context) {
 
 		c.JSON(http.StatusOK, gin.H{
 			"message": fmt.Sprintf(" %s successfully created", flowername),
+		})
+}
+
+// GET all flowers
+func GetAllFlower(c *gin.Context) {
+		var (
+			flower models.Flower
+			flowers []models.Flower
+		)
+		rows, err := db.Init().Query("select id, name, category, price, photo, descriptions from flower;")
+		if err != nil {
+			fmt.Print(err.Error())
+		}
+		for rows.Next() {
+			err = rows.Scan(&flower.Id, &flower.Name, &flower.Category, &flower.Price, &flower.Photo, &flower.Descriptions)
+			flowers = append(flowers, flower)
+			if err != nil {
+				fmt.Print(err.Error())
+			}
+		}
+		defer rows.Close()
+		c.JSON(http.StatusOK, gin.H{
+			"result": flowers,
+			"count":  len(flowers),
 		})
 }

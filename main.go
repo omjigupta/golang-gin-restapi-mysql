@@ -21,6 +21,8 @@ func SetupRouter() *gin.Engine {
   v1 := router.Group("api/v1")
   {
     v1.POST("/flower", controllers.Create)
+    //v1.GET("/flower/:id", controllers.GetFlower)
+    v1.GET("/flowers", controllers.GetAllFlower)
     v1.GET("/check", controllers.HealthCheck)
   }
   return router
