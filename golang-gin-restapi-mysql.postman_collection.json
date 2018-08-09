@@ -1,0 +1,302 @@
+{
+	"info": {
+		"_postman_id": "4cc9d5e0-3190-4de4-b2a7-71e682418887",
+		"name": "golang-gin-restapi-mysql",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "create flower",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "Armeria Alliacea",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "category",
+							"value": "Herbaceous Perennials",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "price",
+							"value": "7.99",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "photo",
+							"value": "armeria_allicaea.jpg",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "descriptions",
+							"value": "Summer flowering",
+							"description": "",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8081/api/v1/flower",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"v1",
+						"flower"
+					]
+				}
+			},
+			"response": [
+				{
+					"id": "f568334e-ab43-490b-a576-f7ee6427a5f1",
+					"name": "create flower",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"name": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"disabled": false
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "Armeria Alliacea",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "category",
+									"value": "Herbaceous Perennials",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "price",
+									"value": "7.99",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "photo",
+									"value": "armeria_allicaea.jpg",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "descriptions",
+									"value": "Summer flowering",
+									"description": "",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8081/api/v1/flower",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"v1",
+								"flower"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Length",
+							"value": "53",
+							"name": "Content-Length",
+							"description": "The length of the response body in octets (8-bit bytes)"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8",
+							"name": "Content-Type",
+							"description": "The mime type of this content"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 08 Aug 2018 20:07:06 GMT",
+							"name": "Date",
+							"description": "The date and time that the message was sent"
+						}
+					],
+					"cookie": [],
+					"body": "{\"message\":\" Armeria Alliacea  successfully created\"}"
+				}
+			]
+		},
+		{
+			"name": "Get all flowers",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:8081/api/v1/flowers",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"v1",
+						"flowers"
+					]
+				}
+			},
+			"response": [
+				{
+					"id": "4e008ee9-6486-41a7-b20b-cbec67ee6260",
+					"name": "Success",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "http://localhost:8081/api/v1/flowers",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"v1",
+								"flowers"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Length",
+							"value": "321",
+							"name": "Content-Length",
+							"description": "The length of the response body in octets (8-bit bytes)"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8",
+							"name": "Content-Type",
+							"description": "The mime type of this content"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 09 Aug 2018 19:09:09 GMT",
+							"name": "Date",
+							"description": "The date and time that the message was sent"
+						}
+					],
+					"cookie": [],
+					"body": "{\"result\":[{\"Id\":1,\"Name\":\"Chrysanthemum\",\"Category\":\"Herbaceous Perennials\",\"Price\":911,\"Photo\":\"bronze_mums.jpg\",\"Descriptions\":\"Chrysanthemums respond to plenty of food.\"},{\"Id\":2,\"Name\":\"Armeria Alliacea\",\"Category\":\"Herbaceous Perennials\",\"Price\":8,\"Photo\":\"armeria_allicaea.jpg\",\"Descriptions\":\"Summer flowering\"}]}"
+				}
+			]
+		},
+		{
+			"name": "Get flower using flower id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:8081/api/v1/flower/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"v1",
+						"flower",
+						"1"
+					]
+				}
+			},
+			"response": [
+				{
+					"id": "79eb62a6-a911-4e1e-a75e-a07029c34ac0",
+					"name": "Success",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "http://localhost:8081/api/v1/flower/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"v1",
+								"flower",
+								"1"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Length",
+							"value": "174",
+							"name": "Content-Length",
+							"description": "The length of the response body in octets (8-bit bytes)"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8",
+							"name": "Content-Type",
+							"description": "The mime type of this content"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 09 Aug 2018 19:07:31 GMT",
+							"name": "Date",
+							"description": "The date and time that the message was sent"
+						}
+					],
+					"cookie": [],
+					"body": "{\"result\":{\"Id\":1,\"Name\":\"Chrysanthemum\",\"Category\":\"Herbaceous Perennials\",\"Price\":911,\"Photo\":\"bronze_mums.jpg\",\"Descriptions\":\"Chrysanthemums respond to plenty of food.\"}}"
+				}
+			]
+		}
+	]
+}

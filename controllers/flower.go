@@ -60,6 +60,29 @@ func GetAllFlower(c *gin.Context) {
 		defer rows.Close()
 		c.JSON(http.StatusOK, gin.H{
 			"result": flowers,
-			"count":  len(flowers),
 		})
+}
+
+// GET a flower detail
+func GetFlower(c *gin.Context) {
+		var (
+			flower models.Flower
+			result gin.H
+		)
+		id := c.Param("id")
+		err := db.Init().QueryRow("select id, name, category, price, photo, descriptions from flower where id = ?;", id).Scan(&flower.Id, &flower.Name, &flower.Category, &flower.Price, &flower.Photo, &flower.Descriptions)
+
+		if err != nil {
+			// If no results send null
+			result = gin.H{
+				"result": nil,
+				"count":  0,
+			}
+		} else {
+			result = gin.H{
+				"result": flower,
+			}
+		}
+
+		c.JSON(http.StatusOK, result)
 }
